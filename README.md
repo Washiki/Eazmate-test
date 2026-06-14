@@ -6,9 +6,9 @@ Tools used for this :
 
 - For handling HTTP requests, we use `Fastify` 
 
-- The persistent memory is handled via 'Postgresql'  and 'Prisma'
+- The persistent memory is handled via `Postgresql`  and `Prisma`
 
-- Session management and cache memory was handled via 'Redis'
+- Session management and cache memory was handled via `Redis`
 
 - End point interaction via whatsapp handled via Twilio's API. 
 
@@ -39,8 +39,6 @@ npx prisma db:push
 
 ```
 
-
-
 ### RUNNING
 (For testing and demonstration, we need to populate db with test data. To do that, i've added a `seed.ts` file. Run this as `npx tsx src/seed.ts' in the root dir.)
 
@@ -61,10 +59,14 @@ In terminal 2, after connection, take the link provided and paste it in the twil
 Add the /webhook after it before saving it, as that's the setup route.
 
 Now, connect to the sandbox on twilio (enter the join <sandbox name> in the chat) and it will start. 
-
-
 ### NOTES:
 
 The current update is for ver 1, which does NOT have whatsapp list message integration (finished twilio credits for the day before getting to them). This version only sends text messages to interact with the user.
 
 This was to focus mostly on implementing the finite state machine style working and have it 1) interact with all the services 2) work at scale. Will focus on adding more whatsapp specific qol features soon.
+
+Dynamically scales with all menus and subitems added in the postgres database without need for manual updation of chatflow 
+Stores user's cart for up to 1 hour, after which order is reset. 
+
+
+
